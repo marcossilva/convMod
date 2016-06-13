@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.loyola.blabbertabber">
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/BlabberTabberTheme">
+
+        <!-- http://stackoverflow.com/questions/1898886/removing-an-activity-from-the-history-stack -->
+        <activity
+            android:name="com.loyola.talktracer.activities.MainActivity"
+            android:label="@string/app_name"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.loyola.talktracer.activities.RecordingActivity" />
+        <activity android:name="com.loyola.talktracer.activities.SummaryActivity" />
+        <activity android:name="com.loyola.talktracer.activities.AboutActivity" />
+        <activity android:name="com.loyola.talktracer.activities.SpeakerStatsActivity" />
+
+        <service
+            android:name="com.loyola.talktracer.model.AudioRecord.RecordingService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.loyola.blabbertabber.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+    </application>
+
+</manifest>
