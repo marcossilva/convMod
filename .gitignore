@@ -1,0 +1,11 @@
+.gradle
+/local.properties
+# Ryan Spore "I would feel entirely comfortable
+# ignoring .idea & *.iml"; you may need to manually
+# sync environment things
+/.idea
+*.iml
+.DS_Store
+/build
+/captures
+/app/app-release.apk
