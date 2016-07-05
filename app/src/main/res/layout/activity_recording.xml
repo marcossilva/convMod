@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:background="#F0F0F0"
         android:title="@string/app_name" />
-
+    <!--
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -108,5 +108,43 @@
             android:onClick="summary"
             android:text="@string/button_finish" />
 
+    </LinearLayout> -->
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="377dp"
+        android:layout_weight="0.96"
+        android:weightSum="1">
+
+        <Spinner
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/prog_spinner"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="139dp"
+            android:id="@+id/imageView"
+            android:src="@mipmap/mic_icon_art"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.79"
+            android:layout_marginLeft="20dp" />
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="167dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_record"
+            android:id="@+id/star_button"
+            android:layout_gravity="center"
+            android:onClick="clickRecord"/>
+    </FrameLayout>
+
 </LinearLayout>

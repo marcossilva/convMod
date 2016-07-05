@@ -19,6 +19,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -93,6 +96,15 @@ public class RecordingActivity extends Activity {
         Log.i(TAG, "onCreate()");
         setContentView(R.layout.activity_recording);
 
+        final Spinner spin = (Spinner) findViewById(R.id.prog_spinner);
+        Button btnSt = (Button) findViewById(R.id.star_button);
+        ArrayAdapter<CharSequence> mOptionsAdapter;
+
+        mOptionsAdapter = ArrayAdapter.createFromResource(this, R.array.choice_array, android.R.layout.simple_spinner_item);
+        mOptionsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spin.setAdapter(mOptionsAdapter);
+
         mReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -158,7 +170,7 @@ public class RecordingActivity extends Activity {
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
         if (sharedPref.getBoolean(PREF_RECORDING, RecordingService.recording)) {
             // we're recording, not paused; maybe the screen was rotated
-            clickRecord(null);
+//            clickRecord(null);
         } else {
             clickPause(null);
         }
@@ -230,25 +242,32 @@ public class RecordingActivity extends Activity {
     public void clickRecord(View v) {
         Log.i(TAG, "clickRecord() ");
         // was paused; need to record
-        record();
+//        record();
+        /*
         findViewById(R.id.button_reset).setVisibility(View.INVISIBLE);
         findViewById(R.id.button_finish).setVisibility(View.INVISIBLE);
         findViewById(R.id.button_record).setVisibility(View.INVISIBLE);
         findViewById(R.id.button_record_caption).setVisibility(View.INVISIBLE);
         findViewById(R.id.button_pause).setVisibility(View.VISIBLE);
         findViewById(R.id.button_pause_caption).setVisibility(View.VISIBLE);
+        */
+
+//        ((Button)findViewById(R.id.star_button)).setText(R.string.button_pause);
+        setContentView(R.layout.activity_recording_action);
     }
 
     public void clickPause(View v) {
         Log.i(TAG, "clickPause() ");
         // was recording; need to pause
         pause();
+        /*
         findViewById(R.id.button_reset).setVisibility(View.VISIBLE);
         findViewById(R.id.button_finish).setVisibility(View.VISIBLE);
         findViewById(R.id.button_record).setVisibility(View.VISIBLE);
         findViewById(R.id.button_record_caption).setVisibility(View.VISIBLE);
         findViewById(R.id.button_pause).setVisibility(View.INVISIBLE);
         findViewById(R.id.button_pause_caption).setVisibility(View.INVISIBLE);
+        */
     }
 
 
@@ -337,8 +356,8 @@ public class RecordingActivity extends Activity {
     }
 
     private void displayTimer(Timer t) {
-        ((TextView) findViewById(R.id.meeting_timer))
-                .setText(Helper.timeToHMMSSMinuteMandatory(t.time()));
+        /* ((TextView) findViewById(R.id.meeting_timer))
+                .setText(Helper.timeToHMMSSMinuteMandatory(t.time())); */
     }
 
     private void diarize() {

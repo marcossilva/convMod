@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="choice_array">
+        <item>@string/convMed</item>
+        <item>@string/tlkEnc</item>
+        <item>@string/tlkTlk</item>
+    </string-array>
+</resources>

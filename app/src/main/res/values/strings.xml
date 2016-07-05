@@ -46,4 +46,11 @@
         \n\nThis application was initiated during the Loyola Summer Research Program in 2016 with the help of Dr. Mark Albert.
         </string>
 
+    <!--<string name="start_button_action">Start</string>-->
+
+    <!--Items used in spinners for choose the processing option-->
+    <string name="convMed">Conversation Mediator</string>
+    <string name="tlkEnc">Talker Encouraging</string>
+    <string name="tlkTlk">Track Talkers</string>
+
 </resources>

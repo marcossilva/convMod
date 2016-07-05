@@ -8,25 +8,30 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.loyola.talktracer.activities.MainActivity">
+    tools:context="com.loyola.talktracer.activities.RecordingActivity"
+    android:weightSum="1">
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+    <ImageView
+        android:layout_width="190dp"
+        android:layout_height="172dp"
+        android:src="@mipmap/mic_icon_art"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:onClick="rushLimbaughIsWrong"
-        android:text="@string/welcome_text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="40dp" />
 
-
-    <Button
-        android:id="@+id/launch_recording_activity"
+    <Chronometer
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:onClick="launchRecordingActivity"
-        android:text="@string/launch_recording_activity" />
+        android:layout_marginBottom="30dp" />
+
+    <Button
+        android:layout_width="139dp"
+        android:layout_height="wrap_content"
+        android:text="@string/button_pause"
+        android:id="@+id/stop_button"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.05" />
+
 
 </LinearLayout>
