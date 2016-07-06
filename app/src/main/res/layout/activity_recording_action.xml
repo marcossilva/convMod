@@ -19,11 +19,13 @@
         android:layout_marginTop="100dp"
         android:layout_marginBottom="40dp" />
 
-    <Chronometer
+    <TextView
+        android:id="@+id/meeting_timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="30dp" />
+        android:textColor="#4a4a4a"
+        android:textSize="48sp" />
 
     <Button
         android:layout_width="139dp"
@@ -31,7 +33,8 @@
         android:text="@string/button_pause"
         android:id="@+id/stop_button"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.05" />
+        android:layout_weight="0.05"
+        android:onClick="clickPause"/>
 
 
 </LinearLayout>

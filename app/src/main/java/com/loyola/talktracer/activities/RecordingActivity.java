@@ -97,7 +97,7 @@ public class RecordingActivity extends Activity {
         setContentView(R.layout.activity_recording);
 
         final Spinner spin = (Spinner) findViewById(R.id.prog_spinner);
-        Button btnSt = (Button) findViewById(R.id.star_button);
+//        Button btnSt = (Button) findViewById(R.id.star_button);
         ArrayAdapter<CharSequence> mOptionsAdapter;
 
         mOptionsAdapter = ArrayAdapter.createFromResource(this, R.array.choice_array, android.R.layout.simple_spinner_item);
@@ -242,7 +242,7 @@ public class RecordingActivity extends Activity {
     public void clickRecord(View v) {
         Log.i(TAG, "clickRecord() ");
         // was paused; need to record
-//        record();
+        record();
         /*
         findViewById(R.id.button_reset).setVisibility(View.INVISIBLE);
         findViewById(R.id.button_finish).setVisibility(View.INVISIBLE);
@@ -251,9 +251,15 @@ public class RecordingActivity extends Activity {
         findViewById(R.id.button_pause).setVisibility(View.VISIBLE);
         findViewById(R.id.button_pause_caption).setVisibility(View.VISIBLE);
         */
+//        findViewById(R.id.star_button).setVisibility(View.GONE);
+//        findViewById(R.id.imageView_1).setVisibility(View.GONE);
+//        findViewById(R.id.prog_spinner).setVisibility(View.GONE);
 
+//        findViewById(R.id.imageView).setVisibility(View.VISIBLE);
+//        findViewById(R.id.pause_button).setVisibility(View.VISIBLE);
+//        findViewById(R.id.stop_button).setVisibility(View.VISIBLE);
+//        findViewById(R.id.meeting_timer).setVisibility(View.VISIBLE);
 //        ((Button)findViewById(R.id.star_button)).setText(R.string.button_pause);
-        setContentView(R.layout.activity_recording_action);
     }
 
     public void clickPause(View v) {
@@ -268,6 +274,7 @@ public class RecordingActivity extends Activity {
         findViewById(R.id.button_pause).setVisibility(View.INVISIBLE);
         findViewById(R.id.button_pause_caption).setVisibility(View.INVISIBLE);
         */
+
     }
 
 
@@ -356,8 +363,8 @@ public class RecordingActivity extends Activity {
     }
 
     private void displayTimer(Timer t) {
-        /* ((TextView) findViewById(R.id.meeting_timer))
-                .setText(Helper.timeToHMMSSMinuteMandatory(t.time())); */
+        ((TextView) findViewById(R.id.meeting_timer))
+                .setText(Helper.timeToHMMSSMinuteMandatory(t.time()));
     }
 
     private void diarize() {
