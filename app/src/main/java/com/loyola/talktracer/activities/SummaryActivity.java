@@ -91,18 +91,18 @@ public class SummaryActivity extends Activity {
         }
 //        durationView.setText(Helper.timeToHMMSS(mMeetingDurationInMilliseconds));
 
-//        PieGraph pg = (PieGraph) findViewById(R.id.graph);
-//        PieSlice slice;
+        PieGraph pg = (PieGraph) findViewById(R.id.graph);
+        PieSlice slice;
         GridLayout speakerGrid = (GridLayout) findViewById(R.id.speaker_duration_grid);
-        LinearLayout timeGraph = (LinearLayout) findViewById(R.id.timeGraph);
+//        LinearLayout timeGraph = (LinearLayout) findViewById(R.id.timeGraph);
         for (int i = 0; i < mSpeakers.size(); i++) {
             Speaker speaker = mSpeakers.get(i);
             Log.i(TAG, "onResume() speaker: " + speaker.getName() + " sp.size(): " + mSpeakers.size());
 
-//            slice = new PieSlice();
-//            slice.setColor(speaker.getColor());
-//            slice.setValue(speaker.getTotalDuration());
-//            pg.addSlice(slice);
+            slice = new PieSlice();
+            slice.setColor(speaker.getColor());
+            slice.setValue(speaker.getTotalDuration());
+            pg.addSlice(slice);
 
             TextView name = new TextView(this);
             name.setText(speaker.getName());
@@ -123,10 +123,10 @@ public class SummaryActivity extends Activity {
             bar.setStartTime(0);
             bar.setFinishTime(100);
             speakerTimeBar.addView(bar);
-            timeGraph.addView(speakerTimeBar);
+//            timeGraph.addView(speakerTimeBar);
         }
-//        pg.setInnerCircleRatio(150);
-//        pg.setPadding(5);
+        pg.setInnerCircleRatio(150);
+        pg.setPadding(5);
     }
 
     /**

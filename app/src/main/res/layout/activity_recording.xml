@@ -11,37 +11,59 @@
         android:background="#F0F0F0"
         android:title="@string/app_name" />
 
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp">
+
+        <ImageButton
+            android:layout_width="120dp"
+            android:layout_height="113dp"
+            android:id="@+id/imageButton"
+            android:src="@mipmap/mic_icon_art"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton"
-            android:src="@mipmap/mic_icon_art"
-            android:onClick="clickRecord"
-            android:layout_above="@+id/meeting_timer"
-            android:layout_centerHorizontal="true" />
-
         <TextView
             android:id="@+id/meeting_timer"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textColor="#4a4a4a"
             android:textSize="48sp"
-            android:layout_above="@+id/prog_spinner"
-            android:layout_centerHorizontal="true"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/prog_spinner"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true" />
+            android:layout_marginRight="80dp"
+            android:layout_below="@+id/meeting_timer"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_finish"
+            android:id="@+id/button_finish"
+            android:onClick="summary"
+            android:layout_below="@+id/prog_spinner"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:visibility="invisible"/>
+
+
     </RelativeLayout>
+
     <!--
     <RelativeLayout
         android:layout_width="match_parent"

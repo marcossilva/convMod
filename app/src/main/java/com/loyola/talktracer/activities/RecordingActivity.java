@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -64,6 +65,8 @@ public class RecordingActivity extends Activity {
     private static final String PREF_RECORDING = "com.blabbertabber.blabbertabber.pref_recording";
     private static final int REQUEST_RECORD_AUDIO = 51;
     private boolean mBound = false;
+    private boolean mButtonClicked = false;
+    private boolean mFinishButton = false;
     protected ServiceConnection mServerConn = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder binder) {
@@ -104,6 +107,8 @@ public class RecordingActivity extends Activity {
         mOptionsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spin.setAdapter(mOptionsAdapter);
+
+        (findViewById(R.id.imageButton)).setOnClickListener(clickButtonHandler(getApplicationContext()));
 
         mReceiver = new BroadcastReceiver() {
             @Override
@@ -170,9 +175,9 @@ public class RecordingActivity extends Activity {
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
         if (sharedPref.getBoolean(PREF_RECORDING, RecordingService.recording)) {
             // we're recording, not paused; maybe the screen was rotated
-//            clickRecord(null);
+            clickRecord(null);
         } else {
-            clickPause(null);
+//            clickPause(null);
         }
         // mTimerDisplayThread sends Intents to update the Timer TextView
         mTimerDisplayThread = new Thread() {
@@ -251,15 +256,10 @@ public class RecordingActivity extends Activity {
         findViewById(R.id.button_pause).setVisibility(View.VISIBLE);
         findViewById(R.id.button_pause_caption).setVisibility(View.VISIBLE);
         */
-//        findViewById(R.id.star_button).setVisibility(View.GONE);
-//        findViewById(R.id.imageView_1).setVisibility(View.GONE);
-//        findViewById(R.id.prog_spinner).setVisibility(View.GONE);
 
-//        findViewById(R.id.imageView).setVisibility(View.VISIBLE);
-//        findViewById(R.id.pause_button).setVisibility(View.VISIBLE);
-//        findViewById(R.id.stop_button).setVisibility(View.VISIBLE);
-//        findViewById(R.id.meeting_timer).setVisibility(View.VISIBLE);
-//        ((Button)findViewById(R.id.star_button)).setText(R.string.button_pause);
+        findViewById(R.id.meeting_timer).setVisibility(View.VISIBLE);
+        findViewById(R.id.button_finish).setVisibility(View.INVISIBLE);
+        mFinishButton = false;
     }
 
     public void clickPause(View v) {
@@ -275,6 +275,10 @@ public class RecordingActivity extends Activity {
         findViewById(R.id.button_pause_caption).setVisibility(View.INVISIBLE);
         */
 
+        if (!mFinishButton) {
+            findViewById(R.id.button_finish).setVisibility(View.VISIBLE);
+            mFinishButton = true;
+        }
     }
 
 
@@ -365,6 +369,24 @@ public class RecordingActivity extends Activity {
     private void displayTimer(Timer t) {
         ((TextView) findViewById(R.id.meeting_timer))
                 .setText(Helper.timeToHMMSSMinuteMandatory(t.time()));
+    }
+
+    private View.OnClickListener clickButtonHandler(final Context cont){
+
+        return new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if (mButtonClicked){
+                    clickPause(null);
+                    mButtonClicked = false;
+                } else {
+                    clickRecord(null);
+                    mButtonClicked = true;
+                }
+            }
+        };
+
     }
 
     private void diarize() {
