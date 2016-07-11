@@ -259,6 +259,7 @@ public class RecordingActivity extends Activity {
 
         findViewById(R.id.meeting_timer).setVisibility(View.VISIBLE);
         findViewById(R.id.button_finish).setVisibility(View.INVISIBLE);
+        findViewById(R.id.prog_spinner).setVisibility(View.INVISIBLE);
         mFinishButton = false;
     }
 

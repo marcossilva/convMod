@@ -22,7 +22,8 @@
             android:layout_height="113dp"
             android:id="@+id/imageButton"
             android:src="@mipmap/mic_icon_art"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:background="@drawable/abc_item_background_holo_dark" />
 
     </FrameLayout>
 
