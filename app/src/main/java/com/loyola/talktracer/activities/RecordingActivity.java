@@ -99,8 +99,9 @@ public class RecordingActivity extends Activity {
         Log.i(TAG, "onCreate()");
         setContentView(R.layout.activity_recording);
 
+        // Spinner used for selection of the initial options
         final Spinner spin = (Spinner) findViewById(R.id.prog_spinner);
-//        Button btnSt = (Button) findViewById(R.id.star_button);
+        // Adapter to load spinner options
         ArrayAdapter<CharSequence> mOptionsAdapter;
 
         mOptionsAdapter = ArrayAdapter.createFromResource(this, R.array.choice_array, android.R.layout.simple_spinner_item);
@@ -108,6 +109,7 @@ public class RecordingActivity extends Activity {
 
         spin.setAdapter(mOptionsAdapter);
 
+        // Add the record/pause function to the image button
         (findViewById(R.id.imageButton)).setOnClickListener(clickButtonHandler(getApplicationContext()));
 
         mReceiver = new BroadcastReceiver() {
@@ -177,8 +179,10 @@ public class RecordingActivity extends Activity {
             // we're recording, not paused; maybe the screen was rotated
             clickRecord(null);
         } else {
+            // This line cause problems when starting the app
 //            clickPause(null);
         }
+
         // mTimerDisplayThread sends Intents to update the Timer TextView
         mTimerDisplayThread = new Thread() {
             @Override
@@ -248,6 +252,7 @@ public class RecordingActivity extends Activity {
         Log.i(TAG, "clickRecord() ");
         // was paused; need to record
         record();
+        // Old design
         /*
         findViewById(R.id.button_reset).setVisibility(View.INVISIBLE);
         findViewById(R.id.button_finish).setVisibility(View.INVISIBLE);
@@ -257,6 +262,7 @@ public class RecordingActivity extends Activity {
         findViewById(R.id.button_pause_caption).setVisibility(View.VISIBLE);
         */
 
+        // New (not better) design
         findViewById(R.id.meeting_timer).setVisibility(View.VISIBLE);
         findViewById(R.id.button_finish).setVisibility(View.INVISIBLE);
         findViewById(R.id.prog_spinner).setVisibility(View.INVISIBLE);
@@ -267,6 +273,7 @@ public class RecordingActivity extends Activity {
         Log.i(TAG, "clickPause() ");
         // was recording; need to pause
         pause();
+        // Old design
         /*
         findViewById(R.id.button_reset).setVisibility(View.VISIBLE);
         findViewById(R.id.button_finish).setVisibility(View.VISIBLE);
@@ -276,6 +283,7 @@ public class RecordingActivity extends Activity {
         findViewById(R.id.button_pause_caption).setVisibility(View.INVISIBLE);
         */
 
+        // Summary presentation control
         if (!mFinishButton) {
             findViewById(R.id.button_finish).setVisibility(View.VISIBLE);
             mFinishButton = true;
@@ -372,6 +380,13 @@ public class RecordingActivity extends Activity {
                 .setText(Helper.timeToHMMSSMinuteMandatory(t.time()));
     }
 
+    /**
+     * Defining the action taken when the image button is pressed:
+     * - If the button was while no previous action was handled or a recording was paused
+     *      - Start/Continue the recording
+     * - Else if the recording was ongoing
+     *      - Pause the recording
+     */
     private View.OnClickListener clickButtonHandler(final Context cont){
 
         return new View.OnClickListener(){

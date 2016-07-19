@@ -52,6 +52,7 @@ public class SummaryActivity extends Activity {
 
         // If you don't setContentView, you'll get either IllegalArgumentException or NullPointerException
         setContentView(R.layout.activity_summary);
+
         // Nav Drawer, http://stackoverflow.com/questions/26082467/android-on-drawer-closed-listener
 //        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 //        NavigationView mNavigationView = (NavigationView) findViewById(R.id.left_drawer);
