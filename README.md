@@ -24,3 +24,9 @@ of speaking time each speaker had.
  
 ## Thanks
 We would like to thank the Loyola University for this amazing opportunity, the CAPES for the funding through the BSMP program represented by IIE. We would like to thank the Professor Mark Albert for the amazing support.
+
+## References
+- LIUM Speaker Diarization Toolkit:
+    - M. Rouvier, G. Dupuy, P. Gay, E. Khoury, T. Merlin, S. Meignier, “An Open-source State-of-the-art Toolbox for Broadcast News Diarization,“ Interspeech, Lyon (France), 25-29 Aug. 2013.
+    - S. Meignier, T. Merlin, “LIUM SpkDiarization: An Open Source Toolkit For Diarization,” in Proc. CMU SPUD Workshop, March 2010, Dallas (Texas, USA).
+- BlabberTabber Projects - https://github.com/blabbertabber/blabbertabber
