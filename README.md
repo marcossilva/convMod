@@ -32,6 +32,9 @@ git clone https://github.com/marcossilva/convMod.git
 Then, you can use the Android Studio tool to open the project, following:
 
 File -> Open Project -> Select the folder you cloned (downloaded) the project
+
+You can also use the Android Studio feature to clone the project following the instructions:
+[Import GitHub Project](https://maxrohde.com/2014/08/18/import-github-project-to-android-studio)
  
 ## Thanks
 We would like to thank the Loyola University for this amazing opportunity, the CAPES for the funding through the BSMP program represented by IIE. We would like to thank the Professor Mark Albert for the amazing support.
